@@ -10,8 +10,9 @@ import {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
   viewport: "width=device-width,initial-scale=1",
+  title: "Todos with Remix by Suryadi",
+  description: "Todos app using Remix as the framework."
 });
 
 export default function App() {
