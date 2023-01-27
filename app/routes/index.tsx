@@ -4,12 +4,6 @@ import { prisma } from "~/libs/prisma";
 
 export async function loader() {
   const todos = await prisma.todo.findMany();
-
-  // const todos = [
-  //   { id: 1, text: "Todo A" },
-  //   { id: 2, text: "Todo B" },
-  //   { id: 3, text: "Todo C" },
-  // ];
   return json({ todos });
 }
 
@@ -19,6 +13,12 @@ export default function IndexRoute() {
   return (
     <div>
       <h1>Todos</h1>
+
+      <form action="/" method="post">
+        <label htmlFor="todoText">New Todo:</label>
+        <input type="text" id="todoText" name="text" />
+        <button type="submit">Add</button>
+      </form>
 
       <ul>
         {todos.map((todo, index) => {
