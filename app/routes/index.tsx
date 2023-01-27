@@ -1,9 +1,17 @@
-export default function IndexRoute() {
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+
+export async function loader() {
   const todos = [
-    { id: 1, text: "Todo 1" },
-    { id: 2, text: "Todo 2" },
-    { id: 3, text: "Todo 3" },
+    { id: 1, text: "Todo A" },
+    { id: 2, text: "Todo B" },
+    { id: 3, text: "Todo C" },
   ];
+  return json({ todos });
+}
+
+export default function IndexRoute() {
+  const { todos } = useLoaderData<typeof loader>();
 
   return (
     <div>

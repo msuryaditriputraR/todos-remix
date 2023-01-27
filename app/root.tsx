@@ -22,7 +22,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body style={{fontFamily: 'sans-serif'}}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
