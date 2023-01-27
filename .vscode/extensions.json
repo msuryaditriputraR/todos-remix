@@ -1,5 +1,3 @@
 {
-  "recommendations": [
-    "amimaro.remix-run-snippets"
-  ]
+  "recommendations": ["amimaro.remix-run-snippets", "prisma.prisma"]
 }
