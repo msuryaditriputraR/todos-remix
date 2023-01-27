@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { prisma } from "~/libs/prisma";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -17,12 +18,13 @@ export const meta: MetaFunction = () => ({
 
 export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
-  const text = formData.get("text");
+  const text = String(formData.get("text"));
 
   const newTodo = {
     text,
   };
-  console.log(newTodo);
+
+  await prisma.todo.create({ data: newTodo });
 
   return null;
 }
